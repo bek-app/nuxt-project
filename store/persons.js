@@ -10,12 +10,8 @@ export const mutations = {
     state.persons.push(person)
   },
   deletePerson(state, id) {
-    const index = state.persons.findIndex((person) => {
-      return person._id === id
-    })
-    if (!index < 0) {
-      return state.persons.splice(index, 1)
-    }
+    const index = state.persons.findIndex((person) => person._id === id)
+    state.persons.splice(index, 1)
   },
 }
 

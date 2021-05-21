@@ -8,20 +8,17 @@
           placeholder="Persons"
         ></b-form-input>
         <b-button class="btn" variant="primary" @click="addPerson"
-          >Добавить</b-button
+          >Add</b-button
         ></b-col
       >
     </b-row>
     <b-row>
       <b-col>
         <div>
-          <b-table striped hover :items="persons" :fields="fields">
-            <template #cell(btn)="">
-              <b-button variant="danger" @click="deletePerson(_id)">
+          <b-table striped small hover :items="persons" :fields="fields">
+            <template #cell(btn)="data">
+              <b-button variant="danger" @click="deletePerson(data.item._id)">
                 Delete
-              </b-button>
-              <b-button variant="info" @click="changePerson(_id)">
-                Change
               </b-button>
             </template>
           </b-table>
@@ -71,9 +68,6 @@ export default {
     },
     deletePerson(id) {
       this.$store.dispatch('persons/deletePerson', id)
-    },
-    changePerson(_id) {
-      this.$store.dispatch('persons/changePerson', _id)
     },
   },
 }
