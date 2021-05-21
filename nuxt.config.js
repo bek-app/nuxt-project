@@ -1,4 +1,5 @@
 export default {
+  target: 'server',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'nuxt-project',
@@ -57,5 +58,10 @@ export default {
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    babel: { compact: true },
+  },
+  server: {
+    port: process.env.PORT || 3000,
+  },
 }
